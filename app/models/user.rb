@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable     
   validates :name, presence: true
-end    #nameが体とエラーが起きる設定をした
+  has_many :room_users
+  has_many :users, through: :room_users
+end    #ルームテーブるとのアソシエーションの記述をしている
