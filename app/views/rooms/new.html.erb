@@ -16,6 +16,13 @@
         <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
       </div>
       <div class='chat-room-form__field--right'>
+        <select name = "room[user_ids][]"> <%#これに対するバリューをしたのoption要素で指定している%>
+          <option value="">チャットするユーザーを選択してください</option>
+          <% User.all.where.not(id: current_user.id).each do |user| %> <%#条件に合う以外のデータの取得を記述している%>
+            <option value=<%=user.id%>><%= user.name %></option>
+          <% end %>
+        </select>  <%#プルダウンを実装するための記述%>
+        <input name="room[user_ids][]" type="hidden" value=<%=current_user.id%>> <%#カレンとユーザーのIDをパラムスに含めている%>
       </div>
     </div>
     <div class='chat-room-form__field'>
