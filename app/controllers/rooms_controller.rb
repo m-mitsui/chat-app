@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end #うまく行ったらルーとパスに遷移しそうでないなら戻るように条件分岐してる
+    end #うまく行ったらルーとパスに遷移し、そうでないなら戻るように条件分岐してる
   end
 
   private
